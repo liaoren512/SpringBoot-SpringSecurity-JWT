@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lr.springbootsecurity.dao.UserMapper">
+
+    <select id="getUser" parameterType="String" resultType="com.lr.springbootsecurity.entity.SelfUserDetails">
+      select  user_id, user_name, user_pwd,version  from user
+      where user_name = #{username}
+    </select>
+
+    <select id="getUserRole" parameterType="Integer" resultType="java.util.HashMap">
+      select  user_role.user_id, user_role.role_id, role.role_name, role.version  from  user_role
+      inner join  role  on  user_role.role_id=role.role_id
+      where user_role.user_id=#{userid}
+    </select>
+</mapper>

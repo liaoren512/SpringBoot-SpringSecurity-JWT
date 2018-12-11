@@ -1,0 +1,102 @@
+#server.servlet.context-path=/helloboot
+#server.port=8686
+
+#book.author=\u7F57\u8D2F\u4E2D
+#book.name=\u4E09\u56FD\u6F14\u4E49
+#book.pinyin=sanguoyanyi
+#
+#server.tomcat.uri-encoding=UTF-8
+#spring.http.encoding.charset=UTF-8
+#spring.http.encoding.enabled=true
+#spring.http.encoding.force=true
+#spring.messages.encoding=UTF-8
+#
+#logging.file=D:/logs/SpringBootSecurity/test.log
+#logging.level.org.springframework.web=debug
+#
+#spring.profiles.active=dev
+
+book:
+  author: 罗贯中
+  name: 三国演义
+  pinyin: sanguoyanyi
+
+logging:
+#  file: D:/logs/SpringBootSecurity/test.log
+  level:
+    org:
+      springframework:
+        web: debug
+        security: debug
+
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/security_db?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+    # com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    #监控统计拦截的filters
+    filters: stat,wall,log4j
+    #druid配置
+    #配置初始化大小/最小/最大
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    #获取连接等待超时时间
+    maxWait: 60000
+    #间隔多久进行一次检测，检测需要关闭的空闲连接
+    timeBetweenEvictionRunsMillis: 60000
+    #一个连接在池中最小生存的时间
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    #打开PSCache，并指定每个连接上PSCache的大小。oracle设为true，mysql设为false。分库分表较多推荐设置为false
+    poolPreparedStatements: false
+    maxPoolPreparedStatementPerConnectionSize: 20
+    # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+    connectionProperties:
+      druid:
+        stat:
+          mergeSql: true
+          slowSqlMillis: 5000
+#    profiles:
+#        active: dev
+    http:
+      encoding:
+        charset: UTF-8
+        enabled: true
+        force: true
+    messages:
+      encoding: UTF-8
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/static/
+
+#mybatis是独立节点，需要单独配置
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.deceen.demo.entity  #起别名。可省略写mybatis的xml中的resultType的全路径
+  configuration:
+    map-underscore-to-camel-case: true
+
+server:
+  port: 8181
+  tomcat:
+    uri-encoding: utf-8
+  servlet:
+    context-path: /
+
+jwt:
+  header: Authorization
+  secret: mySecret
+  tokenHead: Bearer
+  expiration: 900

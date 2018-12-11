@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>节点</title>
+    <link rel="stylesheet" href="./css/base.css" type="text/css">
+    <link rel="stylesheet" href="./css/home.css" type="text/css">
+    <link rel="stylesheet" href="./plugins/bootstrap/css/bootstrap.min.css" type="text/css">
+    <style>
+        #peerlist thead th{
+            background-color:#B8CCE4;
+            text-align:center !important;
+        }
+    </style>
+</head>
+<body>
+<div class="row" style="margin-top: 5rem">
+    <div class="row" style="margin-top: 2rem">
+        <div class="col-md-10"></div>
+        <div class="col-md-2">
+            <button id="back" type="button" class="btn btn-primary" style="font-size: 2rem !important;">返&nbsp;&nbsp;&nbsp;回</button>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <table id="peerlist" class="table table-striped table-bordered table-hover" style="table-layout: fixed">
+            <thead style="">
+            <tr>
+                <th style="width: 21%">名称</th>
+                <th style="width: 79%">路径</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="peer in peerList" >
+                <td v-bind:title="peer.peerName">{{peer.peerName}}</td>
+                <td v-bind:title="peer.peerLocation">{{peer.peerLocation}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script src="./plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./js/vue.min.js"></script>
+    <script src="./js/lodash.min.js"></script>
+    <script src="./plugins/layer/layer.js"></script>
+    <script src="./js/Loadwebsign.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/peerinfo.js"></script>
+</body>
+</html>

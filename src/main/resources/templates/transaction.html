@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>交易</title>
+    <link rel="stylesheet" href="./css/base.css" type="text/css">
+    <link rel="stylesheet" href="./css/home.css" type="text/css">
+    <link rel="stylesheet" href="./plugins/bootstrap/css/bootstrap.min.css" type="text/css">
+</head>
+<body>
+
+    <div unselectable="on" onselectstart="return false;">
+        <div class="row" style="margin-top: 2rem">
+            <div class="col-md-10"></div>
+            <div class="col-md-2">
+                <button id="back" type="button" class="btn btn-primary" style="font-size: 2rem !important;">返&nbsp;&nbsp;&nbsp;回</button>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 10rem">
+            <div class="panel panel-default" style="text-align: center;height: 15rem">
+                <div class="col-md-2">
+                    <span id="sender" class="label label-default" style="padding: 5px 50px;line-height: 15rem;font-size: 2rem">a</span>
+                </div>
+                <div class="col-md-2">
+                    <div class="input-group" style="margin-top: 6rem;font-size: 2rem !important;">
+                        <span class="input-group-addon" style="font-size: 2rem !important;">转账给</span>
+                        <input id="recevier" type="text" class="form-control" placeholder="b" style="font-size: 2rem !important;">
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <div class="input-group" style="margin-top: 6rem">
+                        <span class="input-group-addon" style="font-size: 2rem !important;">转账数值</span>
+                        <input id="mount" type="text" class="form-control" placeholder="0" style="font-size: 2rem !important;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6" style="text-align: right">
+                <button id="query" type="button" class="btn btn-primary" style="font-size: 2rem !important;">查&nbsp;&nbsp;&nbsp;询</button>
+            </div>
+            <div class="col-md-6" style="text-align: left">
+                <button id="submit" type="button" class="btn btn-primary" style="font-size: 2rem !important;">提&nbsp;&nbsp;&nbsp;交</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6" style="margin-top: 10px">
+                <table id="user" class="table table-hover table-bordered">
+                    <thead>
+                    <th>name</th>
+                    <th>value</th>
+                    </thead>
+                    <tbody>
+                    <!--<tr v-for="user in userList">-->
+                        <!--<td>{{user.user}}</td>-->
+                        <!--<td>{{user.data}}</td>-->
+                    <!--</tr>-->
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script src="./plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./js/vue.min.js"></script>
+    <script src="./js/lodash.min.js"></script>
+    <script src="./plugins/layer/layer.js"></script>
+    <script src="./js/Loadwebsign.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/transaction.js"></script>
+</body>
+</html>
